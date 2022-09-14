@@ -9,17 +9,14 @@ app.use(cors());
 app.use(express.json());
 const { response } = require('express');
 
-const M = `mongodb://MongoMGIATPK:clxanPYKtOojjkm8@ac-ft60bmc-shard-00-00.ir1rb6u.mongodb.net:27017,ac-ft60bmc-shard-00-01.ir1rb6u.mongodb.net:27017,ac-ft60bmc-shard-00-02.ir1rb6u.mongodb.net:27017/?ssl=true&replicaSet=atlas-12rc7j-shard-0&authSource=admin&retryWrites=true&w=majority`;
+const mongose = `mongodb://MongoMGIATPK:clxanPYKtOojjkm8@ac-ft60bmc-shard-00-00.ir1rb6u.mongodb.net:27017,ac-ft60bmc-shard-00-01.ir1rb6u.mongodb.net:27017,ac-ft60bmc-shard-00-02.ir1rb6u.mongodb.net:27017/?ssl=true&replicaSet=atlas-12rc7j-shard-0&authSource=admin&retryWrites=true&w=majority`;
 
-//mongs.connect('mongodb://localhost:27017/book')
-
-mongs.connect(`${M}`);
+mongs.connect(`${mongose}`);
 
 const PORT = process.env.PORT || 3000;
 
-//http://localhost:3001/test
-app.get('/test.', (request, response) => {
-  response.send('test request received')
+app.get('/mgiatpk_test', (request, response) => {
+  response.send('MGIATPK TEST RESPONSE')
 })
 
 const BookSchema = new mongs.Schema({
