@@ -1,21 +1,17 @@
 'use strict';
 
-
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongs = require('mongoose');
 const app = express();
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 const { response } = require('express');
 
-const M = `mongodb://MongoMGIATPK:clxanPYKtOojjkm8@ac-ft60bmc-shard-00-00.ir1rb6u.mongodb.net:27017,ac-ft60bmc-shard-00-01.ir1rb6u.mongodb.net:27017,ac-ft60bmc-shard-00-02.ir1rb6u.mongodb.net:27017/?ssl=true&replicaSet=atlas-12rc7j-shard-0&authSource=admin&retryWrites=true&w=majority`;
+mongs.connect(procces.env.MONGO);
 
-//mongs.connect('mongodb://localhost:27017/book')
-
-mongs.connect(`${M}`);
-
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 //http://localhost:3001/test
 app.get('/test.', (request, response) => {
