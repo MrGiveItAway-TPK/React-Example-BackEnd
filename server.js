@@ -1,5 +1,6 @@
 'use strict';
 
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongs = require('mongoose');
@@ -14,11 +15,11 @@ const M = `mongodb://MongoMGIATPK:clxanPYKtOojjkm8@ac-ft60bmc-shard-00-00.ir1rb6
 
 mongs.connect(`${M}`);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 //http://localhost:3001/test
-app.get('/mgiatpk_test', (request, response) => {
-  response.send('MGIATPK TEST RECEIVED')
+app.get('/test.', (request, response) => {
+  response.send('test request received')
 })
 
 const BookSchema = new mongs.Schema({
