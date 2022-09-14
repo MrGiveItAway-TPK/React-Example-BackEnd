@@ -12,7 +12,7 @@ const { response } = require('express');
 
 // mongs.connect(`${M}`);
 
-// const PORT = 3000;
+const PORT = 3000;
 
 app.get('/test', (request, response) => {
   response.send('test request received')
@@ -144,4 +144,4 @@ app.get('/test', (request, response) => {
 
 // }
 
-// app.listen(PORT, () => console.log(`listening on ${PORT}`))
+app.listen(PORT, () => console.log(`listening on ${PORT}`))
