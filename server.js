@@ -19,47 +19,46 @@ app.get('/mgiatpk_test', (request, response) => {
   response.send('MGIATPK TEST RESPONSE')
 })
 
-const BookSchema = new mongs.Schema({
+const MovieSchema = new mongs.Schema({
   title: String,
-  discription: String,
+  description: String,
   status: String,
   name: String
 })
 
-const Book = mongs.model('BookModel', BookSchema)
+const Movie = mongs.model('MovieModel', MovieSchema)
 
 async function seedData () {
-  const firstBook = new Book({
+  const firstMovie = new Movie({
     title: 'anatomy',
-    discription: 'Medical subjects',
+    description: 'Medical subjects',
     status: 'available',
     name: "Admin",
   })
-  const secondBook = new Book({
+  const secondMovie = new Movie({
     title: 'liguastics',
-    discription: 'English language subjects',
+    description: 'English language subjects',
     status: 'deserved',
     name: "Admin",
   })
-  const thirdBook = new Book({
+  const thirdMovie = new Movie({
     title: 'special subject in computer engineer',
-    discription: 'computer language subjects',
+    description: 'computer language subjects',
     status: 'not exist',
     name: "Admin",
   })
-  await firstBook.save()
-  await secondBook.save()
-  await thirdBook.save()
+  await firstMovie.save()
+  await secondMovie.save()
+  await thirdMovie.save()
 }
 
-//seedData();
+seedData();
 
-//http://localhost:3001/book
-app.get('/book', getbookHandler)
+app.get('/Movie', getMovieHandler)
 
-function getbookHandler (req, res) {
+function getMovieHandler (req, res) {
   const name = req.query.name;
-  Book.find( {name:name}, (err, result) => {
+  Movie.find( {name:name}, (err, result) => {
     if (err) {
       console.log(err)
     } 
@@ -71,50 +70,46 @@ function getbookHandler (req, res) {
 }
 
 
-app.post('/book', addHandler);
+app.post('/Movie', addHandler);
 
 async function addHandler(req,res) {
-  //console.log(req.body);
-  
-  const {title,discription,status,name} = req.body; //Destructuring assignment
-  await Book.create({
+  const {title,description,status,name} = req.body;
+  await Movie.create({
     title:title,
-    discription:discription,
+    description:description,
     status:status,
     name:name,
       
   });
 
-  Book.find({name:name},(err,result)=>{
+  Movie.find({name:name},(err,result)=>{
       if(err)
       {
           console.log(err);
       }
       else
       {
-          // console.log(result);
           res.send(result);
       }
   })
 }
 
 
-app.delete('/book/:id',deleteHandler);
- 
+app.delete('/Movie/:id',deleteHandler);
+
   function deleteHandler(req,res) { 
-  const bookId = req.params.id;
+  const MovieId = req.params.id;
   const name = req.query.name;
- 
-  Book.deleteOne({_id:bookId},(err,result)=>{
+
+  Movie.deleteOne({_id:MovieId},(err,result)=>{
       
-      Book.find({name:name},(err,result)=>{ 
+      Movie.find({name:name},(err,result)=>{ 
           if(err)
           {
             console.log(err);
           }
           else
           {
-             
             res.send(result);
           }
       })
@@ -123,17 +118,17 @@ app.delete('/book/:id',deleteHandler);
   
 }
 
-app.put('/book/:id',updateHandler);
+app.put('/Movie/:id',updateHandler);
 
 function updateHandler(req, res){
   const id = req.params.id;
-  const {title,discription,status,name} = req.body;
+  const {title,description,status,name} = req.body;
 
-  Book.findByIdAndUpdate(id, {title,discription,status,name}, (err, result) => {
+  Movie.findByIdAndUpdate(id, {title,description,status,name}, (err, result) => {
     if(err){
       console.log(err);
     } else {
-      Book.find({name:name},(err,result)=>{ 
+      Movie.find({name:name},(err,result)=>{ 
         if(err)
         {
             console.log(err);
@@ -147,7 +142,5 @@ function updateHandler(req, res){
   })
 
 }
-
-
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`))
