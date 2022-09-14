@@ -52,7 +52,7 @@ async function seedData () {
   await thirdMovie.save()
 }
 
-seedData(); //FIRST TIME ONLY
+/* seedData(); FIRST TIME ONLY */
 
 app.get('/Movie', getMovieHandler)
 
