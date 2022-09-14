@@ -14,7 +14,7 @@ const { response } = require('express');
 
 // const PORT = 3000;
 
-app.get('/test.', (request, response) => {
+app.get('/test', (request, response) => {
   response.send('test request received')
 })
 
