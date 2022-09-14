@@ -5,7 +5,7 @@ const cors = require('cors');
 const mongs = require('mongoose');
 const app = express();
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 const { response } = require('express');
 
 // const M = `mongodb+srv://MongoMGIATPK:oCvS3zcKjDTGyw4Q@cluster0.ir1rb6u.mongodb.net/?retryWrites=true&w=majority`;
