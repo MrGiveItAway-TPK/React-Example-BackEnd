@@ -9,8 +9,8 @@ app.use(cors());
 app.use(express.json())
 const { response } = require('express');
 
-//const mongose = `mongodb://MongoMGIATPK:clxanPYKtOojjkm8@ac-ft60bmc-shard-00-00.ir1rb6u.mongodb.net:27017,ac-ft60bmc-shard-00-01.ir1rb6u.mongodb.net:27017,ac-ft60bmc-shard-00-02.ir1rb6u.mongodb.net:27017/?ssl=true&replicaSet=atlas-12rc7j-shard-0&authSource=admin&retryWrites=true&w=majority`;
-const mongose = `mongodb://movies:clxanPYKtOojjkm8@ac-ogxaou4-shard-00-00.vnq50b2.mongodb.net:27017,ac-ogxaou4-shard-00-01.vnq50b2.mongodb.net:27017,ac-ogxaou4-shard-00-02.vnq50b2.mongodb.net:27017/?ssl=true&replicaSet=atlas-103vtc-shard-0&authSource=admin&retryWrites=true&w=majority`;
+
+const mongose = `mongodb://MGIATPK:qwmqFkmTPG3E31ic@ac-ft60bmc-shard-00-00.ir1rb6u.mongodb.net:27017,ac-ft60bmc-shard-00-01.ir1rb6u.mongodb.net:27017,ac-ft60bmc-shard-00-02.ir1rb6u.mongodb.net:27017/?ssl=true&replicaSet=atlas-12rc7j-shard-0&authSource=admin&retryWrites=true&w=majority`;
 mongs.connect(`${mongose}`);
 
 const PORT = process.env.PORT || 3000;
