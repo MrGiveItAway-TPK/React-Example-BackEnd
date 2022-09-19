@@ -54,7 +54,7 @@ async function seedData () {
 
 /* seedData(); FIRST TIME ONLY */
 
-app.get('/Movie:name', getMovieHandler)
+app.post('/Movie:name', getMovieHandler)
 
 function getMovieHandler (req, res) {
   const name = req.params.name;
@@ -63,7 +63,7 @@ function getMovieHandler (req, res) {
       console.log(err)
     } 
     else {
-      res.json(result)
+      res.send(result)
     }
   }
   )
