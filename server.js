@@ -6,7 +6,7 @@ const cors = require('cors');
 const mongs = require('mongoose');
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json())
 const { response } = require('express');
 
 const mongose = `mongodb://MongoMGIATPK:clxanPYKtOojjkm8@ac-ft60bmc-shard-00-00.ir1rb6u.mongodb.net:27017,ac-ft60bmc-shard-00-01.ir1rb6u.mongodb.net:27017,ac-ft60bmc-shard-00-02.ir1rb6u.mongodb.net:27017/?ssl=true&replicaSet=atlas-12rc7j-shard-0&authSource=admin&retryWrites=true&w=majority`;
@@ -63,7 +63,7 @@ function getMovieHandler (req, res) {
       console.log(err)
     } 
     else {
-      res.send(result)
+      res.json(result)
     }
   }
   )
