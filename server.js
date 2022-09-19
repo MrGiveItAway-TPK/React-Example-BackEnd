@@ -54,10 +54,10 @@ async function seedData () {
 
 /* seedData(); FIRST TIME ONLY */
 
-app.get('/Movie', getMovieHandler)
+app.get('/Movie:name', getMovieHandler)
 
 function getMovieHandler (req, res) {
-  const name = req.query.name;
+  const name = req.params.name;
   Movie.find( {name:name}, (err, result) => {
     if (err) {
       console.log(err)
