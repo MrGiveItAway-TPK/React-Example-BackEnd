@@ -63,7 +63,7 @@ function getMovieHandler (req, res) {
       console.log(err)
     } 
     else {
-      res.json(result)
+      res.send(result)
     }
   }
   )
