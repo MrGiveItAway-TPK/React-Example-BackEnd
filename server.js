@@ -30,21 +30,21 @@ const Movie = mongs.model('MovieModel', MovieSchema)
 
 async function seedData () {
   const firstMovie = new Movie({
-    title: 'anatomy',
-    description: 'Medical subjects',
-    status: 'available',
+    title: 'Fast And Furious',
+    description: 'Action - Drama',
+    status: 'Available',
     name: "Admin",
   })
   const secondMovie = new Movie({
-    title: 'liguastics',
-    description: 'English language subjects',
-    status: 'deserved',
+    title: 'Law Abiding Citizen',
+    description: 'Action - Drama - Thriller',
+    status: 'Available',
     name: "Admin",
   })
   const thirdMovie = new Movie({
-    title: 'special subject in computer engineer',
-    description: 'computer language subjects',
-    status: 'not exist',
+    title: 'Avengers End Game',
+    description: 'Action - Sci-Fi - Thriller',
+    status: 'Ended',
     name: "Admin",
   })
   await firstMovie.save()
